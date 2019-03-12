@@ -20,8 +20,13 @@ namespace WebApplication.Controllers
         }
 
         // GET: Groups
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? facultyId)
         {
+            if (facultyId != null)
+            {
+                return View(await _context.Groups.Where(g => g.FacultyId == facultyId).Include(g => g.Faculty).ToListAsync());
+            }
+
             var appDbContext = _context.Groups.Include(g => g.Faculty);
             return View(await appDbContext.ToListAsync());
         }
@@ -48,7 +53,7 @@ namespace WebApplication.Controllers
         // GET: Groups/Create
         public IActionResult Create()
         {
-            ViewData["FacultyId"] = new SelectList(_context.Faculties, "Id", "Id");
+            ViewData["Faculties"] = new SelectList(_context.Faculties, "Id", "Name");
             return View();
         }
 
@@ -65,7 +70,7 @@ namespace WebApplication.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["FacultyId"] = new SelectList(_context.Faculties, "Id", "Id", @group.FacultyId);
+            ViewData["Faculties"] = new SelectList(_context.Faculties, "Id", "Name", @group.FacultyId);
             return View(@group);
         }
 
@@ -82,7 +87,7 @@ namespace WebApplication.Controllers
             {
                 return NotFound();
             }
-            ViewData["FacultyId"] = new SelectList(_context.Faculties, "Id", "Id", @group.FacultyId);
+            ViewData["Faculties"] = new SelectList(_context.Faculties, "Id", "Name", @group.FacultyId);
             return View(@group);
         }
 
@@ -118,7 +123,7 @@ namespace WebApplication.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["FacultyId"] = new SelectList(_context.Faculties, "Id", "Id", @group.FacultyId);
+            ViewData["Faculties"] = new SelectList(_context.Faculties, "Id", "Name", @group.FacultyId);
             return View(@group);
         }
 

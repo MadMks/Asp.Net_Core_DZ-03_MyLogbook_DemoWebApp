@@ -20,8 +20,12 @@ namespace WebApplication.Controllers
         }
 
         // GET: Students
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? groupId)
         {
+            if (groupId != null)
+            {
+                return View(await _context.Students.Where(g => g.GroupId == groupId).Include(g => g.Group).ToListAsync());
+            }
             var appDbContext = _context.Students.Include(s => s.Group);
             return View(await appDbContext.ToListAsync());
         }
@@ -48,7 +52,7 @@ namespace WebApplication.Controllers
         // GET: Students/Create
         public IActionResult Create()
         {
-            ViewData["GroupId"] = new SelectList(_context.Groups, "Id", "Id");
+            ViewData["Groups"] = new SelectList(_context.Groups, "Id", "Name");
             return View();
         }
 
@@ -65,7 +69,7 @@ namespace WebApplication.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GroupId"] = new SelectList(_context.Groups, "Id", "Id", student.GroupId);
+            ViewData["Groups"] = new SelectList(_context.Groups, "Id", "Name", student.GroupId);
             return View(student);
         }
 
@@ -82,7 +86,7 @@ namespace WebApplication.Controllers
             {
                 return NotFound();
             }
-            ViewData["GroupId"] = new SelectList(_context.Groups, "Id", "Id", student.GroupId);
+            ViewData["Groups"] = new SelectList(_context.Groups, "Id", "Name", student.GroupId);
             return View(student);
         }
 
@@ -118,7 +122,7 @@ namespace WebApplication.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["GroupId"] = new SelectList(_context.Groups, "Id", "Id", student.GroupId);
+            ViewData["Groups"] = new SelectList(_context.Groups, "Id", "Name", student.GroupId);
             return View(student);
         }
 
