@@ -67,5 +67,7 @@ namespace WebApplication.AppContext
         public DbSet<WebApplication.Models.Teacher> Teacher { get; set; }
 
         public DbSet<WebApplication.Models.Subject> Subject { get; set; }
+
+        public DbSet<WebApplication.Models.Mark> Mark { get; set; }
     }
 }
