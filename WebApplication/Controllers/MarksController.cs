@@ -44,8 +44,24 @@ namespace WebApplication.Controllers
         }
 
         // GET: Marks/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            var marks
+                = await _context.Mark
+                .Include(ts => ts.TeacherSubject)
+                .ToListAsync();
+
+            //ViewBag.TeachersSubjects = marks;
+            //string temp = "";
+            //foreach (var item in marks)
+            //{
+            //    temp += "id mark: " + item.Id.ToString() +": " + Environment.NewLine
+            //        + "subject id: " + item.TeacherSubject.SubjectId.ToString() 
+            //        + " " 
+            //        + "teacher id: " + item.TeacherSubject.TeacherId.ToString()
+            //        + Environment.NewLine;
+            //}
+            //return Content(temp);
             return View();
         }
 

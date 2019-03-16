@@ -26,6 +26,6 @@ namespace WebApplication.Models
         // TODO DepartmentId -> TODO: Create departments
 
         // TODO TeacherSubject #1
-        //public virtual List<TeacherSubject> Subjects { get; set; }
+        public virtual List<TeacherSubject> Subjects { get; set; }
     }
 }

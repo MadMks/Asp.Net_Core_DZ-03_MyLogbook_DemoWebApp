@@ -20,6 +20,6 @@ namespace WebApplication.Models
         public string Name { get; set; }
 
         // TODO TeacherSubject #2
-        //public virtual List<TeacherSubject> Teachers { get; set; }
+        public virtual List<TeacherSubject> Teachers { get; set; }
     }
 }

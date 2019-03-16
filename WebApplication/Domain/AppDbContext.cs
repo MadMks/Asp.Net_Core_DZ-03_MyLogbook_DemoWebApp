@@ -62,6 +62,40 @@ namespace WebApplication.AppContext
                 new Group { Id = 2, Name = "PP-12-2", FacultyId = 1 },
                 new Group { Id = 3, Name = "PP-12-3", FacultyId = 1 },
                 new Group { Id = 4, Name = "PP-12-4", FacultyId = 1 });
+
+            builder.Entity<Student>().HasData(
+                new Student { Id = 1, FirstName = "Tom", LastName = "Forest",
+                GroupId = 1});
+
+            builder.Entity<Subject>().HasData(
+                new Subject
+                {
+                    Id = 1,
+                    Name = "C++"
+                });
+
+            builder.Entity<Teacher>().HasData(
+                new Teacher
+                {
+                    Id = 1,
+                    FirstName = "Travor",
+                    LastName = "Snow"
+                });
+
+            builder.Entity<TeacherSubject>().HasData(
+                new TeacherSubject
+                {
+                    Id = 1,
+                    SubjectId = 1,
+                    TeacherId = 1
+                });
+
+            //builder.Entity<Mark>().HasData(
+            //    new Mark
+            //    {
+            //        Id = 1,
+                    
+            //    });
         }
 
         public DbSet<WebApplication.Models.Teacher> Teacher { get; set; }

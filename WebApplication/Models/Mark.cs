@@ -21,5 +21,8 @@ namespace WebApplication.Models
 
         [Column("value")]
         public int Value { get; set; }
+
+
+        //public virtual List<TeacherSubject> TeacherSubjects { get; set; }
     }
 }

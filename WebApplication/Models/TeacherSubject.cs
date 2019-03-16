@@ -15,10 +15,10 @@ namespace WebApplication.Models
         [Column("id")]
         public int Id { get; set; }
 
-        public Guid SubjectId { get; set; }
+        public int SubjectId { get; set; }
         public virtual Subject Subject { get; set; }
 
-        public Guid TeacherId { get; set; }
+        public int TeacherId { get; set; }
         public virtual Teacher Teacher { get; set; }
 
         // TODO TeacherSubject #0
