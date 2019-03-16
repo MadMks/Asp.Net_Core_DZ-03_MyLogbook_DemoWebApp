@@ -7,25 +7,19 @@ using System.Threading.Tasks;
 
 namespace WebApplication.Models
 {
-    [Table("teachers")]
-    public class Teacher
+    [Table("subjects")]
+    public class Subject
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id")]
         public int Id { get; set; }
 
-        [Column("firstName")]
+        [Column("name")]
         [StringLength(64)]
-        public string FirstName { get; set; }
+        public string Name { get; set; }
 
-        [Column("lastName")]
-        [StringLength(64)]
-        public string LastName { get; set; }
-
-        // TODO DepartmentId -> TODO: Create departments
-
-        // TODO TeacherSubject #1
-        //public virtual List<TeacherSubject> Subjects { get; set; }
+        // TODO TeacherSubject #2
+        //public virtual List<TeacherSubject> Teachers { get; set; }
     }
 }

@@ -7,5 +7,6 @@ namespace WebApplication.Models
 {
     public class TeacherSubject
     {
+        // TODO TeacherSubject #0
     }
 }
