@@ -11,22 +11,25 @@
     <h4>Faculty</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Name)
         </dd>
     </dl>
 
+    <h5>Groups:</h5>
     <div class="row">
         <div class="col-md-12">
-            @foreach( var group in Model.Groups)
+            @foreach (var group in Model.Groups)
             {
                 <div>@group.Name</div>
             }
         </div>
     </div>
+
+    <hr />
 
 </div>
 <div>
