@@ -51,7 +51,7 @@ namespace WebApplication.Controllers
                 .Include(ts => ts.TeacherSubject)
                 .ToListAsync();
 
-            //ViewBag.TeachersSubjects = marks;
+            ViewBag.Marks = marks;
             //string temp = "";
             //foreach (var item in marks)
             //{

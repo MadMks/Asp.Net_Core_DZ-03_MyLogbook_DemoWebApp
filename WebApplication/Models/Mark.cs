@@ -16,13 +16,14 @@ namespace WebApplication.Models
         [Column("id")]
         public int Id { get; set; }
 
+        public int TeacherSubjectId { get; set; }
         public virtual TeacherSubject TeacherSubject { get; set; }
+
+        public int StudentId { get; set; }
         public virtual Student Student { get; set; }
+
 
         [Column("value")]
         public int Value { get; set; }
-
-
-        //public virtual List<TeacherSubject> TeacherSubjects { get; set; }
     }
 }

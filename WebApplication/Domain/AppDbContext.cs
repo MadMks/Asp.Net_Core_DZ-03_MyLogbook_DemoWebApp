@@ -30,6 +30,11 @@ namespace WebApplication.AppContext
                 .WithMany(f => f.Groups)
                 .HasForeignKey(g => g.FacultyId);
 
+            builder.Entity<Mark>()
+                .HasOne(m => m.Student)
+                .WithMany(s => s.Marks)
+                .HasForeignKey(m => m.StudentId);
+
             base.OnModelCreating(builder);
 
             
@@ -90,12 +95,14 @@ namespace WebApplication.AppContext
                     TeacherId = 1
                 });
 
-            //builder.Entity<Mark>().HasData(
-            //    new Mark
-            //    {
-            //        Id = 1,
-                    
-            //    });
+            builder.Entity<Mark>().HasData(
+                new Mark
+                {
+                    Id = 1,
+                    TeacherSubjectId = 1,
+                    StudentId = 1,
+                    Value = 777
+                });
         }
 
         public DbSet<WebApplication.Models.Teacher> Teacher { get; set; }

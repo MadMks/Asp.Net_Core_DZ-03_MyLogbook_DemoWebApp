@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplication.Models;
 
 namespace WebApplication.Entities
 {
@@ -27,5 +28,8 @@ namespace WebApplication.Entities
         public Group Group { get; set; }
 
         public int GroupId { get; set; }
+
+        //
+        public virtual List<Mark> Marks { get; set; }
     }
 }
