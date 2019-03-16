@@ -40,6 +40,7 @@ namespace WebApplication.Controllers
 
             var student = await _context.Students
                 .Include(s => s.Group)
+                .Include(m => m.Marks)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (student == null)
             {

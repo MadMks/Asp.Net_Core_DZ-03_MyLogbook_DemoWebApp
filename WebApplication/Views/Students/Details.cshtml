@@ -11,27 +11,36 @@
     <h4>Student</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.FirstName)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.FirstName)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.LastName)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.LastName)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Group)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Group.Name)
         </dd>
     </dl>
 
     <h5>Marks</h5>
+    <div class="row">
+        <div class="col-md-12">
+            @foreach (var m in Model.Marks)
+            {
+                <div>M id: @m.Id</div>
+                <div>Value: @m.Value</div>
+            }
+        </div>
+    </div>
 
 </div>
 <div>
