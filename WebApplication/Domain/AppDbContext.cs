@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using WebApplication.Entities;
+using WebApplication.Models;
 
 namespace WebApplication.AppContext
 {
@@ -62,5 +63,7 @@ namespace WebApplication.AppContext
                 new Group { Id = 3, Name = "PP-12-3", FacultyId = 1 },
                 new Group { Id = 4, Name = "PP-12-4", FacultyId = 1 });
         }
+
+        public DbSet<WebApplication.Models.Teacher> Teacher { get; set; }
     }
 }

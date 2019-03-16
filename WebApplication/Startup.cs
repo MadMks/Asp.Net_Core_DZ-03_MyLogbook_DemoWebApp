@@ -62,7 +62,7 @@ namespace WebApplication
                 var context = serviceScope.ServiceProvider.GetRequiredService<AppDbContext>();
                 
 
-                //context.Database.EnsureDeleted();
+                context.Database.EnsureDeleted();
                 context.Database.EnsureCreated();
             }
 
