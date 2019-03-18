@@ -48,7 +48,8 @@ namespace WebApplication.Controllers
         {
             var marks
                 = await _context.Mark
-                .Include(ts => ts.TeacherSubject)
+                //.Include(ts => ts.TeacherSubject)
+                .Include(s => s.TeacherSubject.Subject)
                 .ToListAsync();
 
             ViewBag.Marks = marks;

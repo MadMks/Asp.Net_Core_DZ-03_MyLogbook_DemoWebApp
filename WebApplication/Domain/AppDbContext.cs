@@ -69,8 +69,20 @@ namespace WebApplication.AppContext
                 new Group { Id = 4, Name = "PP-12-4", FacultyId = 1 });
 
             builder.Entity<Student>().HasData(
-                new Student { Id = 1, FirstName = "Tom", LastName = "Forest",
-                GroupId = 1});
+                new Student
+                {
+                    Id = 1,
+                    FirstName = "Patrick",
+                    LastName = "Mayo",
+                    GroupId = 1
+                },
+                new Student
+                {
+                    Id = 2,
+                    FirstName = "Todd",
+                    LastName = "Kelley",
+                    GroupId = 1
+                });
 
             builder.Entity<Subject>().HasData(
                 new Subject
@@ -83,8 +95,8 @@ namespace WebApplication.AppContext
                 new Teacher
                 {
                     Id = 1,
-                    FirstName = "Travor",
-                    LastName = "Snow"
+                    FirstName = "Asher",
+                    LastName = "Mercer"
                 });
 
             builder.Entity<TeacherSubject>().HasData(
@@ -95,13 +107,35 @@ namespace WebApplication.AppContext
                     TeacherId = 1
                 });
 
+            // Оценки.
             builder.Entity<Mark>().HasData(
                 new Mark
                 {
                     Id = 1,
                     TeacherSubjectId = 1,
                     StudentId = 1,
-                    Value = 777
+                    Value = 10
+                },
+                new Mark
+                {
+                    Id = 2,
+                    TeacherSubjectId = 1,
+                    StudentId = 1,
+                    Value = 11
+                },
+                new Mark
+                {
+                    Id = 3,
+                    TeacherSubjectId = 1,
+                    StudentId = 1,
+                    Value = 8
+                },
+                new Mark
+                {
+                    Id = 4,
+                    TeacherSubjectId = 1,
+                    StudentId = 2,
+                    Value = 9
                 });
         }
 
