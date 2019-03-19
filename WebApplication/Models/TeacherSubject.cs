@@ -21,8 +21,9 @@ namespace WebApplication.Models
         public int TeacherId { get; set; }
         public virtual Teacher Teacher { get; set; }
 
-        // TODO TeacherSubject #0 ?
+        // TODO TeacherSubject #0
 
-        //public virtual List<Mark> Marks { get; set; }
+        // TODO FIX ?
+        //public virtual List<Mark> Marks { get; set; } 
     }
 }
