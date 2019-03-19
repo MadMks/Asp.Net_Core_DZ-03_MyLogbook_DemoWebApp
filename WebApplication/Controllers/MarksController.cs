@@ -48,21 +48,11 @@ namespace WebApplication.Controllers
         {
             var marks
                 = await _context.Mark
-                //.Include(ts => ts.TeacherSubject)
-                .Include(s => s.TeacherSubject.Subject)
+                .Include(ts => ts.TeacherSubject)
                 .ToListAsync();
 
             ViewBag.Marks = marks;
-            //string temp = "";
-            //foreach (var item in marks)
-            //{
-            //    temp += "id mark: " + item.Id.ToString() +": " + Environment.NewLine
-            //        + "subject id: " + item.TeacherSubject.SubjectId.ToString() 
-            //        + " " 
-            //        + "teacher id: " + item.TeacherSubject.TeacherId.ToString()
-            //        + Environment.NewLine;
-            //}
-            //return Content(temp);
+
             return View();
         }
 
