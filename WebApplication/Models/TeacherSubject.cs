@@ -22,5 +22,7 @@ namespace WebApplication.Models
         public virtual Teacher Teacher { get; set; }
 
         // TODO TeacherSubject #0
+        
+        public virtual Mark Mark { get; set; }
     }
 }
