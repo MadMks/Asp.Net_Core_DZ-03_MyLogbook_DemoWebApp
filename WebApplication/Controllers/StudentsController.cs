@@ -47,6 +47,12 @@ namespace WebApplication.Controllers
                 return NotFound();
             }
 
+            ViewBag.TeacherSubject = await _context.Mark
+                .Include(m => m.TeacherSubject)
+                .Include(t => t.TeacherSubject.Teacher)
+                .Include(s => s.TeacherSubject.Subject)
+                .ToListAsync();
+
             return View(student);
         }
 

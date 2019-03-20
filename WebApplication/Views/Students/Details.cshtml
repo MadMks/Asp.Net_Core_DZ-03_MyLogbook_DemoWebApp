@@ -45,18 +45,23 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">TeacherSubject</th>
+                    @*<th scope="col">TeacherSubject</th>*@
+                    <th scope="col">Subject</th>
+                    <th scope="col">Teacher</th>
                     <th scope="col">Value</th>
                 </tr>
             </thead>
             <tbody>
                 @for (int i = 0; i < Model.Marks.Count; i++)
                 {
-                    <tr>
-                        <th scope="row">@(i + 1)</th>
-                        <td>@Model.Marks[i].TeacherSubjectId</td>
-                        <td>@Model.Marks[i].Value</td>
-                    </tr>
+                <tr>
+                    <th scope="row">@(i + 1)</th>
+                    @*<td>@Model.Marks[i].TeacherSubjectId</td>*@
+                    <td>@Model.Marks[i].TeacherSubject.Subject.Name</td>
+                    <td>@Model.Marks[i].TeacherSubject.Teacher.LastName 
+                        @Model.Marks[i].TeacherSubject.Teacher.FirstName</td>
+                    <td>@Model.Marks[i].Value</td>
+                </tr>
                 }
             </tbody>
         </table>

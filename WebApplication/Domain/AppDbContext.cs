@@ -89,6 +89,11 @@ namespace WebApplication.AppContext
                 {
                     Id = 1,
                     Name = "C++"
+                },
+                new Subject
+                {
+                    Id = 2,
+                    Name = "WPF"
                 });
 
             builder.Entity<Teacher>().HasData(
@@ -97,6 +102,12 @@ namespace WebApplication.AppContext
                     Id = 1,
                     FirstName = "Asher",
                     LastName = "Mercer"
+                },
+                new Teacher
+                {
+                    Id = 2,
+                    FirstName = "Davis",
+                    LastName = "Anderson"
                 });
 
             builder.Entity<TeacherSubject>().HasData(
@@ -105,6 +116,12 @@ namespace WebApplication.AppContext
                     Id = 1,
                     SubjectId = 1,
                     TeacherId = 1
+                },
+                new TeacherSubject
+                {
+                    Id = 2,
+                    SubjectId = 2,
+                    TeacherId = 2
                 });
 
             // Оценки.
@@ -136,6 +153,13 @@ namespace WebApplication.AppContext
                     TeacherSubjectId = 1,
                     StudentId = 2,
                     Value = 9
+                },
+                new Mark
+                {
+                    Id = 5,
+                    TeacherSubjectId = 2,
+                    StudentId = 2,
+                    Value = 10
                 });
         }
 
