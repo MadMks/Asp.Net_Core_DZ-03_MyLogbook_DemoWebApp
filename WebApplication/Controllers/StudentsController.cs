@@ -47,13 +47,51 @@ namespace WebApplication.Controllers
                 return NotFound();
             }
 
+            // Данные по оценкам
             ViewBag.TeacherSubject = await _context.Mark
                 .Include(m => m.TeacherSubject)
                 .Include(t => t.TeacherSubject.Teacher)
                 .Include(s => s.TeacherSubject.Subject)
                 .ToListAsync();
 
+            if (student.Marks.Count > 0)
+            {
+                ViewBag.Rating = ComputeRating(id);
+            }
+
             return View(student);
+        }
+        // Вычисление рейтинга студента (по его id)
+        private dynamic ComputeRating(int? id)
+        {
+            var student = _context.Students
+                .FirstOrDefault(s => s.Id == id);
+
+            var students = _context.Students
+                .Where(s => s.GroupId == student.GroupId);
+
+
+            // id студента / средняя оценка.
+            Dictionary<int, double> dictStudIdAvgMark
+                = new Dictionary<int, double>();
+            foreach (var item in students)
+            {
+                dictStudIdAvgMark.Add(
+                    item.Id,
+                    item.Marks.Average(m => m.Value)
+                    );
+            }
+            // Сортированный список id студентов (по рейтингу)
+            List<int> listId = 
+                (from entry in dictStudIdAvgMark
+                orderby entry.Value
+                descending
+                select entry.Key)
+                .ToList();
+
+            int rating = listId.IndexOf((int)id);
+
+            return ++rating;
         }
 
         // GET: Students/Create

@@ -82,6 +82,20 @@ namespace WebApplication.AppContext
                     FirstName = "Todd",
                     LastName = "Kelley",
                     GroupId = 1
+                },
+                new Student
+                {
+                    Id = 3,
+                    FirstName = "Felix",
+                    LastName = "Mcdowell",
+                    GroupId = 1
+                },
+                new Student
+                {
+                    Id = 4,
+                    FirstName = "Norman",
+                    LastName = "Williamson",
+                    GroupId = 2
                 });
 
             builder.Entity<Subject>().HasData(
@@ -131,35 +145,56 @@ namespace WebApplication.AppContext
                     Id = 1,
                     TeacherSubjectId = 1,
                     StudentId = 1,
-                    Value = 10
+                    Value = 8
                 },
                 new Mark
                 {
                     Id = 2,
                     TeacherSubjectId = 1,
                     StudentId = 1,
-                    Value = 11
+                    Value = 8
                 },
                 new Mark
                 {
                     Id = 3,
                     TeacherSubjectId = 1,
                     StudentId = 1,
-                    Value = 8
+                    Value = 10
                 },
                 new Mark
                 {
                     Id = 4,
                     TeacherSubjectId = 1,
                     StudentId = 2,
-                    Value = 9
+                    Value = 12
                 },
                 new Mark
                 {
                     Id = 5,
                     TeacherSubjectId = 2,
                     StudentId = 2,
-                    Value = 10
+                    Value = 11
+                },
+                new Mark
+                {
+                    Id = 6,
+                    TeacherSubjectId = 2,
+                    StudentId = 3,
+                    Value = 5
+                },
+                new Mark
+                {
+                    Id = 7,
+                    TeacherSubjectId = 2,
+                    StudentId = 3,
+                    Value = 6
+                },
+                new Mark
+                {
+                    Id = 8,
+                    TeacherSubjectId = 2,
+                    StudentId = 3,
+                    Value = 7
                 });
         }
 
